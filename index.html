@@ -617,24 +617,35 @@
 async function cargarPreguntas() {
 
     const contenedor =
-        document.getElementById("questions-container");
+        document.getElementById(
+            "questions-container"
+        );
 
     try {
 
-        const respuesta = await fetch(
-            "https://nova-arg.github.io/eclipse2027/data/preguntas.json?t="
-            + Date.now()
-        );
+        const respuesta =
+            await fetch(
+                "https://nova-arg.github.io/eclipse2027/data/preguntas.json?t="
+                + Date.now()
+            );
 
         if (!respuesta.ok) {
-            throw new Error("No se pudo cargar preguntas.json");
+
+            throw new Error(
+                "No se pudo cargar preguntas.json"
+            );
+
         }
 
-        const preguntas = await respuesta.json();
+        const preguntas =
+            await respuesta.json();
 
         contenedor.innerHTML = "";
 
-        if (preguntas.length === 0) {
+        if (
+            !Array.isArray(preguntas) ||
+            preguntas.length === 0
+        ) {
 
             contenedor.innerHTML = `
                 <p class="loading">
@@ -645,15 +656,68 @@ async function cargarPreguntas() {
             return;
         }
 
+
+        /*
+         * Más recientes primero
+         */
+
         preguntas
             .slice()
             .reverse()
             .forEach(function (pregunta) {
 
                 const tarjeta =
-                    document.createElement("article");
+                    document.createElement(
+                        "article"
+                    );
 
-                tarjeta.className = "question";
+                tarjeta.className =
+                    "question";
+
+
+                /*
+                 * Información opcional
+                 */
+
+                let meta = "";
+
+                if (
+                    pregunta.nombre &&
+                    pregunta.lugar
+                ) {
+
+                    meta =
+                        "Pregunta de " +
+                        escaparHTML(
+                            pregunta.nombre
+                        ) +
+                        " · " +
+                        escaparHTML(
+                            pregunta.lugar
+                        );
+
+                } else if (
+                    pregunta.nombre
+                ) {
+
+                    meta =
+                        "Pregunta de " +
+                        escaparHTML(
+                            pregunta.nombre
+                        );
+
+                } else if (
+                    pregunta.lugar
+                ) {
+
+                    meta =
+                        "Pregunta desde " +
+                        escaparHTML(
+                            pregunta.lugar
+                        );
+
+                }
+
 
                 tarjeta.innerHTML = `
 
@@ -662,8 +726,21 @@ async function cargarPreguntas() {
                     </div>
 
                     <h3>
-                        ${escaparHTML(pregunta.pregunta)}
+                        ${escaparHTML(
+                            pregunta.pregunta
+                        )}
                     </h3>
+
+                    ${
+                        meta
+                            ? `
+                                <div class="question-meta">
+                                    ${meta}
+                                </div>
+                              `
+                            : ""
+                    }
+
 
                     <div class="answer">
 
@@ -672,17 +749,24 @@ async function cargarPreguntas() {
                         </div>
 
                         <p>
-                            ${escaparHTML(pregunta.respuesta)}
+                            ${escaparHTML(
+                                pregunta.respuesta
+                            )}
                         </p>
 
                     </div>
+
                 `;
 
-                contenedor.appendChild(tarjeta);
+                contenedor.appendChild(
+                    tarjeta
+                );
 
             });
 
-    } catch (error) {
+    }
+
+    catch (error) {
 
         console.error(
             "Error cargando preguntas:",
@@ -690,15 +774,23 @@ async function cargarPreguntas() {
         );
 
         contenedor.innerHTML = `
+
             <p class="loading">
                 No pudimos cargar las preguntas
                 en este momento.
             </p>
+
         `;
 
     }
+
 }
 
+
+/*
+ * Evita interpretar como HTML
+ * el contenido enviado por los usuarios.
+ */
 
 function escaparHTML(texto) {
 
@@ -709,6 +801,7 @@ function escaparHTML(texto) {
         texto || "";
 
     return elemento.innerHTML;
+
 }
 
 

@@ -177,38 +177,28 @@
 
 .hero-highlight {
     display: flex;
-
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
 
-    gap: 18px;
+    gap: 20px;
 
-    text-align: left;
+    text-align: center;
 
     color: white !important;
 
     margin-top: 28px;
 }
 
-.hero-highlight::before {
-    content: "";
-
-    width: 3px;
-
-    flex-shrink: 0;
-
-    background: rgba(255,255,255,0.75);
-
-    border-radius: 3px;
-
-    box-shadow:
-        0 0 12px rgba(255,255,255,0.25);
+.hero-highlight span {
+    display: block;
 }
 
 .hero-highlight strong {
     display: block;
 
-    margin-top: 5px;
+    padding-left: 20px;
+
+    border-left: 2px solid rgba(255,255,255,0.65);
 
     color: white;
 }
@@ -1118,13 +1108,17 @@ section h2 {
             un lugar de encuentro para observar el eclipse
             solar anular de 2027.
         </p>
+<p class="hero-highlight">
 
-        <p class="hero-highlight">
-            ¿Tenés una pregunta sobre el eclipse?
-            <strong>
-                Astrónomos y físicos pueden responderla.
-            </strong>
-        </p>
+    <span>
+        ¿Tenés una pregunta sobre el eclipse?
+    </span>
+
+    <strong>
+        Astrónomos y físicos pueden responderla.
+    </strong>
+
+</p>
 
         <a
             class="button"

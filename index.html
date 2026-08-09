@@ -3,7 +3,6 @@
 <html lang="es">
 <head>
 
-```
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -199,7 +198,31 @@
         color: #c8ccda;
     }
 
+.answered-section {
+    margin-top: 100px;
+}
 
+.loading {
+    color: #858ba3;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.answer {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255,255,255,0.04);
+    border-left: 3px solid #7183ff;
+    border-radius: 10px;
+}
+
+.answer-label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    color: #9da9ff;
+    margin-bottom: 8px;
+}
     /* =========================
        FORMULARIO TALLY
     ========================= */
@@ -442,6 +465,32 @@
 
     </div>
 
+
+
+   <!-- =========================
+     PREGUNTAS RESPONDIDAS
+========================= -->
+
+<div class="answered-section">
+
+    <h2>
+        🔭 Preguntas respondidas
+    </h2>
+
+    <p class="ask-description">
+        Algunas de las preguntas que recibimos y las respuestas
+        de nuestros/as astrónomos/as.
+    </p>
+
+    <div id="questions-container" class="questions">
+
+        <p class="loading">
+            Cargando preguntas...
+        </p>
+
+    </div>
+
+</div>
 </section>
 
 
@@ -505,6 +554,111 @@
     }
 
 </script>
+<script>
+
+async function cargarPreguntas() {
+
+    const contenedor =
+        document.getElementById("questions-container");
+
+    try {
+
+        const respuesta = await fetch(
+            "https://nova-arg.github.io/eclipse2027/data/preguntas.json?t="
+            + Date.now()
+        );
+
+        if (!respuesta.ok) {
+            throw new Error("No se pudo cargar preguntas.json");
+        }
+
+        const preguntas = await respuesta.json();
+
+        contenedor.innerHTML = "";
+
+        if (preguntas.length === 0) {
+
+            contenedor.innerHTML = `
+                <p class="loading">
+                    Todavía no hay preguntas respondidas.
+                </p>
+            `;
+
+            return;
+        }
+
+        preguntas
+            .slice()
+            .reverse()
+            .forEach(function (pregunta) {
+
+                const tarjeta =
+                    document.createElement("article");
+
+                tarjeta.className = "question";
+
+                tarjeta.innerHTML = `
+
+                    <div class="question-label">
+                        PREGUNTA
+                    </div>
+
+                    <h3>
+                        ${escaparHTML(pregunta.pregunta)}
+                    </h3>
+
+                    <div class="answer">
+
+                        <div class="answer-label">
+                            🔭 RESPUESTA DEL ASTRÓNOMO/A
+                        </div>
+
+                        <p>
+                            ${escaparHTML(pregunta.respuesta)}
+                        </p>
+
+                    </div>
+                `;
+
+                contenedor.appendChild(tarjeta);
+
+            });
+
+    } catch (error) {
+
+        console.error(
+            "Error cargando preguntas:",
+            error
+        );
+
+        contenedor.innerHTML = `
+            <p class="loading">
+                No pudimos cargar las preguntas
+                en este momento.
+            </p>
+        `;
+
+    }
+}
+
+
+function escaparHTML(texto) {
+
+    const elemento =
+        document.createElement("div");
+
+    elemento.textContent =
+        texto || "";
+
+    return elemento.innerHTML;
+}
+
+
+cargarPreguntas();
+
+</script>
+
+   
 ```
 
 </body>

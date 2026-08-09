@@ -168,9 +168,11 @@
     }
 
 
-  /* =========================
+ ```css
+/* =========================
    PREGUNTAS RESPONDIDAS
 ========================= */
+
 .answered-section {
     margin-top: 110px;
 }
@@ -179,175 +181,230 @@
     margin-top: 45px;
 
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    gap: 28px;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 24px;
 }
 
 
-/* TARJETA */
+/* =========================
+   TARJETAS
+========================= */
 
 .question {
     position: relative;
 
-    min-height: 310px;
+    min-height: 270px;
 
-    padding: 0;
-
-    overflow: hidden;
-
-    border-radius: 20px;
-
-    border: 1px solid #252d4d;
-
-    background: #10162d;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 15px 40px rgba(0, 0, 0, 0.25);
-
-    transition:
-        transform 0.4s ease,
-        border-color 0.4s ease,
-        box-shadow 0.4s ease;
-}
-
-
-/* Imagen */
-
-.question-image {
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    transition:
-        transform 0.7s ease;
-}
-
-
-/* Oscurecimiento */
-
-.question-overlay {
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(4, 7, 20, 0.97) 0%,
-            rgba(5, 8, 22, 0.78) 45%,
-            rgba(5, 8, 22, 0.20) 100%
-        );
-}
-
-
-/* Contenido */
-
-.question-content {
-    position: absolute;
-
-    inset: 0;
+    padding: 30px;
 
     display: flex;
 
     flex-direction: column;
 
-    justify-content: flex-end;
+    justify-content: space-between;
 
-    padding: 28px;
+    overflow: hidden;
 
-    z-index: 2;
+    background:
+        linear-gradient(
+            145deg,
+            #11182f,
+            #0b1024
+        );
+
+    border:
+        1px solid #252d4d;
+
+    border-radius: 18px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.20);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* pequeño detalle decorativo */
+
+.question::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -90px;
+    right: -70px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(113, 131, 255, 0.12),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+    transition:
+        transform 0.5s ease;
+}
+
+
+/* segunda decoración */
+
+.question::after {
+    content: "";
+
+    position: absolute;
+
+    width: 1px;
+    height: 70px;
+
+    left: 30px;
+    top: 30px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(157, 169, 255, 0.8),
+            transparent
+        );
+
+    opacity: 0.7;
 }
 
 
 /* Hover */
 
 .question:hover {
-    transform: translateY(-7px);
 
-    border-color: #5969ad;
+    transform:
+        translateY(-7px);
+
+    border-color:
+        #4c5b91;
 
     box-shadow:
-        0 25px 55px rgba(0, 0, 0, 0.40);
+        0 22px 50px rgba(0, 0, 0, 0.35);
 }
 
-.question:hover .question-image {
-    transform: scale(1.07);
+.question:hover::before {
+    transform:
+        scale(1.35);
 }
 
 
-/* Etiqueta */
+/* =========================
+   NUMERACIÓN
+========================= */
 
-.question-label {
-    font-size: 0.7rem;
+.question-number {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 0.72rem;
 
     font-weight: bold;
 
     letter-spacing: 0.14em;
 
-    color: #9da9ff;
+    color: #8f9cff;
 
-    margin-bottom: 10px;
+    margin-bottom: 18px;
 }
 
 
-/* Pregunta */
+/* =========================
+   CONTENIDO
+========================= */
+
+.question-content {
+
+    position: relative;
+
+    z-index: 2;
+}
+
 
 .question h3 {
-    font-size: 1.45rem;
+
+    font-size:
+        clamp(
+            1.25rem,
+            2vw,
+            1.55rem
+        );
 
     line-height: 1.4;
 
     color: white;
 
-    margin-bottom: 12px;
-}
-
-
-/* Nombre + lugar */
-
-.question-meta {
-    color: #c0c5d8;
-
-    font-size: 0.9rem;
-
     margin-bottom: 16px;
 }
 
 
-/* Indicador */
+/* =========================
+   NOMBRE Y LUGAR
+========================= */
+
+.question-meta {
+
+    color: #9da4bb;
+
+    font-size: 0.9rem;
+
+    line-height: 1.5;
+
+    margin-bottom: 22px;
+}
+
+
+/* =========================
+   LEER RESPUESTA
+========================= */
 
 .question-read {
+
+    position: relative;
+
+    z-index: 2;
+
     display: inline-flex;
 
     align-items: center;
 
     gap: 8px;
 
-    color: white;
+    color: #dce1ff;
 
     font-size: 0.85rem;
 
     font-weight: bold;
 
-    opacity: 0.85;
-
     transition:
         transform 0.3s ease,
-        opacity 0.3s ease;
+        color 0.3s ease;
 }
 
 .question:hover .question-read {
-    transform: translateX(5px);
 
-    opacity: 1;
+    transform:
+        translateX(5px);
+
+    color: white;
 }
 
 
@@ -356,6 +413,7 @@
 ========================= */
 
 .question-modal {
+
     position: fixed;
 
     inset: 0;
@@ -366,12 +424,16 @@
 
     justify-content: center;
 
-    padding: 30px;
+    padding: 25px;
 
     background:
-        rgba(2, 4, 15, 0.82);
+        rgba(2, 4, 15, 0.84);
 
-    backdrop-filter: blur(12px);
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
 
     z-index: 1000;
 
@@ -384,23 +446,31 @@
         visibility 0.3s ease;
 }
 
+
 .question-modal.active {
+
     opacity: 1;
 
     visibility: visible;
 }
 
 
+/* =========================
+   CONTENIDO DE LA VENTANA
+========================= */
+
 .question-modal-content {
+
     position: relative;
 
-    width: min(800px, 100%);
+    width:
+        min(800px, 100%);
 
     max-height: 85vh;
 
     overflow-y: auto;
 
-    padding: 45px;
+    padding: 48px;
 
     background:
         linear-gradient(
@@ -412,28 +482,39 @@
     border:
         1px solid #303b67;
 
-    border-radius: 24px;
+    border-radius: 22px;
 
     box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.55);
+        0 35px 90px rgba(0, 0, 0, 0.60);
 
-    transform: translateY(20px);
+    transform:
+        translateY(20px)
+        scale(0.98);
 
     transition:
         transform 0.3s ease;
 }
 
+
 .question-modal.active
 .question-modal-content {
-    transform: translateY(0);
+
+    transform:
+        translateY(0)
+        scale(1);
 }
 
 
+/* =========================
+   BOTÓN CERRAR
+========================= */
+
 .question-modal-close {
+
     position: absolute;
 
     top: 18px;
-    right: 22px;
+    right: 20px;
 
     width: 40px;
     height: 40px;
@@ -443,54 +524,69 @@
     border-radius: 50%;
 
     background:
-        rgba(255,255,255,0.08);
+        rgba(255,255,255,0.07);
 
     color: white;
 
     font-size: 1.5rem;
 
+    line-height: 1;
+
     cursor: pointer;
 
     transition:
         background 0.2s ease,
-        transform 0.2s ease;
+        transform 0.25s ease;
 }
+
 
 .question-modal-close:hover {
-    background:
-        rgba(255,255,255,0.16);
 
-    transform: rotate(90deg);
+    background:
+        rgba(255,255,255,0.14);
+
+    transform:
+        rotate(90deg);
 }
 
 
+/* =========================
+   CONTENIDO MODAL
+========================= */
+
 .modal-question-label {
+
     font-size: 0.72rem;
 
     font-weight: bold;
 
     letter-spacing: 0.14em;
 
-    color: #9da9ff;
+    color: #8f9cff;
 
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
 
 .question-modal h2 {
-    font-size: clamp(
-        1.8rem,
-        4vw,
-        2.7rem
-    );
+
+    font-size:
+        clamp(
+            1.8rem,
+            4vw,
+            2.7rem
+        );
 
     line-height: 1.3;
 
-    margin-bottom: 12px;
+    color: white;
+
+    margin-bottom: 14px;
 }
 
 
 .modal-meta {
+
     color: #858ba3;
 
     font-size: 0.95rem;
@@ -499,11 +595,16 @@
 }
 
 
+/* =========================
+   RESPUESTA
+========================= */
+
 .modal-answer {
-    padding: 25px;
+
+    padding: 26px;
 
     background:
-        rgba(255,255,255,0.04);
+        rgba(255,255,255,0.035);
 
     border-left:
         3px solid #7183ff;
@@ -513,7 +614,8 @@
 
 
 .modal-answer-label {
-    font-size: 0.75rem;
+
+    font-size: 0.72rem;
 
     font-weight: bold;
 
@@ -521,16 +623,17 @@
 
     color: #9da9ff;
 
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
 
 .modal-answer p {
+
     color: #d2d6e5;
 
     font-size: 1.08rem;
 
-    line-height: 1.8;
+    line-height: 1.85;
 
     white-space: pre-line;
 }
@@ -543,36 +646,53 @@
 @media (max-width: 700px) {
 
     .questions {
-        grid-template-columns: 1fr;
 
-        gap: 20px;
+        grid-template-columns:
+            1fr;
+
+        gap: 18px;
     }
+
 
     .question {
-        min-height: 290px;
+
+        min-height: 250px;
+
+        padding: 26px;
     }
 
-    .question-content {
-        padding: 23px;
-    }
 
     .question h3 {
+
         font-size: 1.25rem;
     }
 
+
     .question-modal {
-        padding: 15px;
+
+        padding: 12px;
     }
 
+
     .question-modal-content {
-        padding: 35px 25px 30px;
 
-        max-height: 90vh;
+        max-height: 92vh;
 
-        border-radius: 20px;
+        padding:
+            40px 24px 28px;
+
+        border-radius: 18px;
+    }
+
+
+    .modal-answer {
+
+        padding: 20px;
     }
 
 }
+
+
     /* =========================
        FORMULARIO TALLY
     ========================= */
@@ -932,20 +1052,8 @@
     }
 
 </script>
+```javascript
 <script>
-
-const imagenesAstronomicas = [
-
-    "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1200&q=80",
-
-    "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?auto=format&fit=crop&w=1200&q=80",
-
-    "https://images.unsplash.com/photo-1534791547706-7b5750f11f03?auto=format&fit=crop&w=1200&q=80",
-
-    "https://images.unsplash.com/photo-1465101162946-4377e57745c3?auto=format&fit=crop&w=1200&q=80"
-
-];
-
 
 async function cargarPreguntas() {
 
@@ -973,6 +1081,7 @@ async function cargarPreguntas() {
         const preguntas =
             await respuesta.json();
 
+
         contenedor.innerHTML = "";
 
 
@@ -992,144 +1101,154 @@ async function cargarPreguntas() {
 
 
         /*
-         * Más recientes primero
+         * Mostramos las más recientes primero.
          */
 
         preguntas
             .slice()
             .reverse()
-            .forEach(function (
-                pregunta,
-                indice
-            ) {
-
-                const tarjeta =
-                    document.createElement(
-                        "article"
-                    );
-
-                tarjeta.className =
-                    "question";
-
-
-                /*
-                 * Imagen
-                 */
-
-                const imagen =
-                    imagenesAstronomicas[
-                        indice %
-                        imagenesAstronomicas.length
-                    ];
-
-
-                /*
-                 * Nombre y lugar
-                 */
-
-                let meta = "";
-
-                if (
-                    pregunta.nombre &&
-                    pregunta.lugar
+            .forEach(
+                function (
+                    pregunta,
+                    indice
                 ) {
 
-                    meta =
-                        "Pregunta de " +
-                        escaparHTML(
-                            pregunta.nombre
-                        ) +
-                        " · " +
-                        escaparHTML(
-                            pregunta.lugar
+                    const tarjeta =
+                        document.createElement(
+                            "article"
                         );
 
-                } else if (
-                    pregunta.nombre
-                ) {
-
-                    meta =
-                        "Pregunta de " +
-                        escaparHTML(
-                            pregunta.nombre
-                        );
-
-                } else if (
-                    pregunta.lugar
-                ) {
-
-                    meta =
-                        "Pregunta desde " +
-                        escaparHTML(
-                            pregunta.lugar
-                        );
-
-                }
+                    tarjeta.className =
+                        "question";
 
 
-                tarjeta.innerHTML = `
+                    /*
+                     * Nombre y lugar
+                     */
 
-                    <img
-                        class="question-image"
-                        src="${imagen}"
-                        alt=""
-                    >
-
-                    <div class="question-overlay"></div>
-
-                    <div class="question-content">
-
-                        <div class="question-label">
-                            PREGUNTA
-                        </div>
-
-                        <h3>
-                            ${escaparHTML(
-                                pregunta.pregunta
-                            )}
-                        </h3>
-
-                        ${
-                            meta
-                                ? `
-                                    <div class="question-meta">
-                                        ${meta}
-                                    </div>
-                                  `
-                                : ""
-                        }
-
-                        <div class="question-read">
-                            🔭 Leer respuesta
-                            <span>→</span>
-                        </div>
-
-                    </div>
-
-                `;
+                    let meta = "";
 
 
-                /*
-                 * Click → modo lectura
-                 */
+                    if (
+                        pregunta.nombre &&
+                        pregunta.lugar
+                    ) {
 
-                tarjeta.addEventListener(
-                    "click",
-                    function () {
-
-                        abrirPregunta(
-                            pregunta
-                        );
+                        meta =
+                            "Pregunta de " +
+                            escaparHTML(
+                                pregunta.nombre
+                            ) +
+                            " · " +
+                            escaparHTML(
+                                pregunta.lugar
+                            );
 
                     }
-                );
+
+                    else if (
+                        pregunta.nombre
+                    ) {
+
+                        meta =
+                            "Pregunta de " +
+                            escaparHTML(
+                                pregunta.nombre
+                            );
+
+                    }
+
+                    else if (
+                        pregunta.lugar
+                    ) {
+
+                        meta =
+                            "Pregunta desde " +
+                            escaparHTML(
+                                pregunta.lugar
+                            );
+
+                    }
 
 
-                contenedor.appendChild(
-                    tarjeta
-                );
+                    /*
+                     * Número de pregunta
+                     */
 
-            });
+                    const numero =
+                        String(
+                            indice + 1
+                        ).padStart(
+                            2,
+                            "0"
+                        );
+
+
+                    /*
+                     * Crear tarjeta
+                     */
+
+                    tarjeta.innerHTML = `
+
+                        <div class="question-content">
+
+                            <div class="question-number">
+                                ${numero} · PREGUNTA
+                            </div>
+
+                            <h3>
+                                ${escaparHTML(
+                                    pregunta.pregunta
+                                )}
+                            </h3>
+
+                            ${
+                                meta
+                                    ? `
+                                        <div
+                                            class="question-meta"
+                                        >
+                                            ${meta}
+                                        </div>
+                                      `
+                                    : ""
+                            }
+
+                        </div>
+
+
+                        <div class="question-read">
+
+                            🔭 Leer respuesta
+                            <span>→</span>
+
+                        </div>
+
+                    `;
+
+
+                    /*
+                     * Abrir modo lectura
+                     */
+
+                    tarjeta.addEventListener(
+                        "click",
+                        function () {
+
+                            abrirPregunta(
+                                pregunta
+                            );
+
+                        }
+                    );
+
+
+                    contenedor.appendChild(
+                        tarjeta
+                    );
+
+                }
+            );
 
     }
 
@@ -1173,7 +1292,12 @@ function abrirPregunta(
         );
 
 
+    /*
+     * Nombre y lugar
+     */
+
     let meta = "";
+
 
     if (
         pregunta.nombre &&
@@ -1189,7 +1313,9 @@ function abrirPregunta(
                 pregunta.lugar
             );
 
-    } else if (
+    }
+
+    else if (
         pregunta.nombre
     ) {
 
@@ -1198,7 +1324,9 @@ function abrirPregunta(
                 pregunta.nombre
             );
 
-    } else if (
+    }
+
+    else if (
         pregunta.lugar
     ) {
 
@@ -1210,17 +1338,23 @@ function abrirPregunta(
     }
 
 
+    /*
+     * Contenido de la ventana
+     */
+
     contenido.innerHTML = `
 
         <div class="modal-question-label">
             PREGUNTA
         </div>
 
+
         <h2>
             ${escaparHTML(
                 pregunta.pregunta
             )}
         </h2>
+
 
         ${
             meta
@@ -1232,11 +1366,13 @@ function abrirPregunta(
                 : ""
         }
 
+
         <div class="modal-answer">
 
             <div class="modal-answer-label">
                 🔭 RESPUESTA DEL ASTRÓNOMO/A
             </div>
+
 
             <p>
                 ${escaparHTML(
@@ -1249,6 +1385,10 @@ function abrirPregunta(
     `;
 
 
+    /*
+     * Mostrar ventana
+     */
+
     modal.classList.add(
         "active"
     );
@@ -1258,13 +1398,18 @@ function abrirPregunta(
         "false"
     );
 
+
+    /*
+     * Evitar scroll de fondo
+     */
+
     document.body.style.overflow =
         "hidden";
 }
 
 
 /* =========================
-   CERRAR
+   CERRAR PREGUNTA
 ========================= */
 
 function cerrarPregunta() {
@@ -1273,6 +1418,7 @@ function cerrarPregunta() {
         document.getElementById(
             "question-modal"
         );
+
 
     modal.classList.remove(
         "active"
@@ -1283,10 +1429,15 @@ function cerrarPregunta() {
         "true"
     );
 
+
     document.body.style.overflow =
         "";
 }
 
+
+/* =========================
+   BOTÓN X
+========================= */
 
 document
     .getElementById(
@@ -1298,10 +1449,9 @@ document
     );
 
 
-/*
- * Cerrar haciendo click
- * fuera de la ventana
- */
+/* =========================
+   CLICK FUERA
+========================= */
 
 document
     .getElementById(
@@ -1323,9 +1473,9 @@ document
     );
 
 
-/*
- * Cerrar con ESC
- */
+/* =========================
+   TECLA ESC
+========================= */
 
 document.addEventListener(
     "keydown",
@@ -1363,9 +1513,15 @@ function escaparHTML(
 }
 
 
+/* =========================
+   INICIAR
+========================= */
+
 cargarPreguntas();
 
 </script>
+
+
 
    
 

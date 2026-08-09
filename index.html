@@ -89,8 +89,9 @@
             center / cover;
     }
 /* =========================
-HERO
+   HERO
 ========================= */
+
 .hero {
     position: relative;
     width: 100vw;
@@ -110,7 +111,7 @@ HERO
     right: 5%;
     top: 50%;
 
-    width: 50%;
+    width: 65%;
     height: 72%;
 
     transform: translateY(-50%);
@@ -119,9 +120,11 @@ HERO
         url("https://svs.gsfc.nasa.gov/vis/a010000/a014400/a014450/14450_002_20231015-013148-jfs_print.jpg");
 
     background-size: 140%;
-
     background-position: center;
+
     border-radius: 6px;
+
+    opacity: 0.8;
 }
 
 .hero-text {
@@ -136,6 +139,111 @@ HERO
     color: white;
 }
 
+/* =========================
+   TÍTULO
+========================= */
+
+.hero-text h1 {
+    white-space: nowrap;
+    text-align: center;
+
+    font-size: clamp(3.2rem, 7vw, 6rem);
+
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+
+    margin: 0 auto 30px auto;
+
+    text-shadow:
+        0 4px 30px rgba(0,0,0,0.65);
+}
+
+/* =========================
+   TEXTO
+========================= */
+
+.hero p {
+    max-width: 620px;
+
+    margin: 0 auto 22px;
+
+    font-size: 1.15rem;
+
+    line-height: 1.7;
+
+    color: #d7d9e2;
+}
+
+.hero-highlight {
+    display: flex;
+
+    justify-content: center;
+    align-items: stretch;
+
+    gap: 18px;
+
+    text-align: left;
+
+    color: white !important;
+
+    margin-top: 28px;
+}
+
+.hero-highlight::before {
+    content: "";
+
+    width: 3px;
+
+    flex-shrink: 0;
+
+    background: rgba(255,255,255,0.75);
+
+    border-radius: 3px;
+
+    box-shadow:
+        0 0 12px rgba(255,255,255,0.25);
+}
+
+.hero-highlight strong {
+    display: block;
+
+    margin-top: 5px;
+
+    color: white;
+}
+
+/* =========================
+   BOTÓN
+========================= */
+
+.button {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding: 15px 25px;
+
+    border-radius: 8px;
+
+    background: white;
+
+    color: #050505;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+
+    background: #dfe5ff;
+}
 /* Degradado sobre la imagen */
 
 .hero-overlay {

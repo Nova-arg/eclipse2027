@@ -91,33 +91,53 @@
 /* =========================
    HERO
 ========================= */
-
 .hero {
     position: relative;
-    width: 100%;
-    min-height: 720px;
+    width: 100vw;
+    max-width: none;
+    min-height: 680px;
+    margin-left: calc(50% - 50vw);
     display: flex;
     align-items: center;
     overflow: hidden;
     background: #000;
+    color: white;
 }
-
-
-/* Imagen */
 
 .hero-background {
     position: absolute;
-    inset: 0;
+    z-index: 1;
+
+    right: 5%;
+    top: 50%;
+
+    width: 38%;
+    height: 72%;
+
+    transform: translateY(-50%);
 
     background-image:
         url("https://svs.gsfc.nasa.gov/vis/a010000/a014400/a014450/14450_002_20231015-013148-jfs_print.jpg");
 
     background-size: cover;
-    background-position: center center;
+    background-position: center;
 
-    transform: scale(1.03);
+    border-radius: 6px;
 }
 
+.hero-text {
+    position: relative;
+    z-index: 3;
+
+    width: 52%;
+    max-width: 900px;
+
+    margin-left: 7%;
+
+    padding: 80px 0;
+
+    color: white;
+}
 
 /* Degradado sobre la imagen */
 
@@ -142,20 +162,6 @@
         );
 }
 
-
-/* Texto */
-
-.hero-text {
-    position: relative;
-    z-index: 2;
-
-    max-width: 720px;
-
-    margin-left: 8%;
-    padding: 100px 40px 100px 0;
-
-    color: white;
-}
 
 
 .hero-label {

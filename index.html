@@ -90,28 +90,49 @@
     }
 
   .hero {
-    position: relative;
-    min-height: 620px;
+    min-height: 520px;
 
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
 
-    padding: 80px 8%;
+    padding: 70px 8%;
 
-    background-image:
-        linear-gradient(
-            90deg,
-            rgba(3, 7, 20, 0.92) 0%,
-            rgba(3, 7, 20, 0.65) 45%,
-            rgba(3, 7, 20, 0.20) 100%
-        ),
-        url("https://svs.gsfc.nasa.gov/vis/a010000/a014400/a014450/14450_002_20231015-013148-jfs_print.jpg");
-
-    background-size: cover;
-    background-position: center;
+    background: #050814;
 
     color: white;
+}
+
+
+.hero-text {
+    flex: 1;
+    max-width: 650px;
+}
+
+
+.hero-image {
+    flex: 0 0 380px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.hero-image img {
+    width: 100%;
+    max-width: 380px;
+
+    height: auto;
+
+    display: block;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 40px rgba(255, 255, 255, 0.12),
+        0 0 80px rgba(255, 180, 60, 0.10);
 }
 
     .hero h1 {
@@ -714,7 +735,34 @@
     }
 
 }
+@media (max-width: 700px) {
 
+    .hero {
+        flex-direction: column;
+        text-align: center;
+
+        padding: 60px 25px;
+
+        gap: 35px;
+    }
+
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+
+    .hero-image {
+        flex: none;
+        width: 230px;
+    }
+
+
+    .hero-image img {
+        max-width: 230px;
+    }
+
+}
 
     /* =========================
        FORMULARIO TALLY

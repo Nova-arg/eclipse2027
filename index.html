@@ -89,7 +89,7 @@
             center / cover;
     }
 /* =========================
-   HERO
+HERO
 ========================= */
 .hero {
     position: relative;
@@ -110,14 +110,15 @@
     right: 5%;
     top: 50%;
 
-    width: 38%;
+    width: 50%;
     height: 72%;
 
     transform: translateY(-50%);
 
     background-image:
         url("https://svs.gsfc.nasa.gov/vis/a010000/a014400/a014450/14450_002_20231015-013148-jfs_print.jpg");
-     background-size: 140%;
+
+    background-size: 140%;
 
     background-position: center;
     border-radius: 6px;
@@ -127,11 +128,10 @@
     text-align: center;
     z-index: 3;
 
-    width: 52%;
+    width: 100%;
     max-width: 900px;
 
-    margin-left: 0 auto;
-
+    margin: 0 auto;
 
     color: white;
 }
@@ -160,7 +160,6 @@
 }
 
 
-
 .hero-label {
     display: inline-block;
 
@@ -174,7 +173,6 @@
     color: #b8c7ff;
 }
 
-
 .hero-text h1 {
     white-space: nowrap;
     text-align: center;
@@ -182,11 +180,10 @@
     margin: 0 auto 25px auto;
 }
 
-
 .hero p {
     max-width: 620px;
 
-    margin: 0 0 22px;
+    margin: 0 auto 22px;
 
     font-size: 1.15rem;
 
@@ -195,13 +192,11 @@
     color: #d7d9e2;
 }
 
-
 .hero-highlight {
     text-align: center;
 
     color: white !important;
 }
-
 
 .hero-highlight strong {
     display: block;
@@ -210,7 +205,6 @@
 
     color: white;
 }
-
 
 /* Botón */
 
@@ -236,16 +230,14 @@
         background 0.2s ease;
 }
 
-
 .button:hover {
     transform: translateY(-2px);
 
     background: #dfe5ff;
 }
 
-
 /* =========================
-   MOBILE
+MOBILE
 ========================= */
 
 @media (max-width: 700px) {
@@ -283,40 +275,38 @@
     .hero p {
         font-size: 1rem;
     }
-
 }
 
-    /* =========================
-       SECCIONES
-    ========================= */
+/* =========================
+   SECCIONES
+========================= */
 
-    section {
-        max-width: 1100px;
-        margin: auto;
+section {
+    max-width: 1100px;
+    margin: auto;
 
-        padding: 100px 25px;
-    }
+    padding: 100px 25px;
+}
 
-    section h2 {
-        font-size: 2.5rem;
-        margin-bottom: 25px;
-    }
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+}
 
-    .intro {
-        color: #c8ccda;
-        max-width: 850px;
-        font-size: 1.1rem;
-        line-height: 1.8;
-    }
+.intro {
+    color: #c8ccda;
+    max-width: 850px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
 
-    .intro p {
-        margin-bottom: 20px;
-    }
+.intro p {
+    margin-bottom: 20px;
+}
 
-    .intro p:last-child {
-        margin-bottom: 0;
-    }
-
+.intro p:last-child {
+    margin-bottom: 0;
+}
 
  ```css
 /* =========================

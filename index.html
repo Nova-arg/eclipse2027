@@ -2,7 +2,13 @@
 
 <html lang="es">
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap"
+    rel="stylesheet"
+>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -132,7 +138,7 @@
     z-index: 3;
 
     width: 100%;
-    max-width: 900px;
+    max-width: 1200px;
 
     margin: 0 auto;
 
@@ -147,24 +153,30 @@
     white-space: nowrap;
     text-align: center;
 
-    font-size: clamp(3.2rem, 7vw, 6rem);
+    font-family: "Inter", sans-serif;
+
+    font-size: clamp(5rem, 10vw, 9rem);
 
     font-weight: 800;
-    letter-spacing: -0.035em;
-    line-height: 1.05;
 
-    margin: 0 auto 30px auto;
+    letter-spacing: -0.055em;
+
+    line-height: 0.95;
+
+    margin: 0 auto 35px auto;
 
     text-shadow:
-        0 4px 30px rgba(0,0,0,0.65);
+        0 4px 35px rgba(0,0,0,0.7);
 }
+
+
 
 /* =========================
    TEXTO
 ========================= */
 
 .hero p {
-    max-width: 620px;
+    max-width: 850px;
 
     margin: 0 auto 22px;
 
@@ -177,16 +189,22 @@
 
 .hero-highlight {
     display: flex;
+
     justify-content: center;
     align-items: center;
 
     gap: 20px;
 
+    width: max-content;
+    max-width: 100%;
+
+    margin: 30px auto 0;
+
     text-align: center;
 
     color: white !important;
 
-    margin-top: 28px;
+    white-space: nowrap;
 }
 
 .hero-highlight span {
@@ -198,9 +216,12 @@
 
     padding-left: 20px;
 
-    border-left: 2px solid rgba(255,255,255,0.65);
+    border-left:
+        2px solid rgba(255,255,255,0.65);
 
     color: white;
+
+    white-space: nowrap;
 }
 
 /* =========================
@@ -338,6 +359,7 @@
 MOBILE
 ========================= */
 
+
 @media (max-width: 700px) {
 
     .hero {
@@ -372,6 +394,38 @@ MOBILE
 
     .hero p {
         font-size: 1rem;
+    }
+
+   
+    .hero-text h1 {
+        white-space: normal;
+
+        font-size: 4rem;
+
+        letter-spacing: -0.045em;
+    }
+
+    .hero-highlight {
+        width: 100%;
+
+        white-space: normal;
+
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .hero-highlight strong {
+        padding-left: 0;
+
+        padding-top: 10px;
+
+        border-left: none;
+
+        border-top:
+            2px solid rgba(255,255,255,0.65);
+
+        white-space: normal;
     }
 }
 

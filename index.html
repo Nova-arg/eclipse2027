@@ -69,7 +69,26 @@
 
     display: block;
 }
+/* =========================
+   EFECTO IMAGEN CENTRAL
+========================= */
 
+.astronomy-carousel .swiper-slide {
+    opacity: 0.45;
+    transform: scale(0.82);
+}
+
+.astronomy-carousel .swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 2;
+}
+.astronomy-carousel .swiper-slide {
+    transition:
+        transform 0.7s ease,
+        opacity 0.7s ease;
+}
+    
 /* Oscurecimiento suave */
 
 .astronomy-slide-overlay {
@@ -1375,28 +1394,28 @@ section h2 {
 
             <div class="swiper-slide">
                 <img
-                    src="images/cristian(22).jpg"
+                    src="images/cristiangonzalez(22).jpg"
                     alt="Imagen astronómica"
                 >
             </div>
 
             <div class="swiper-slide">
                 <img
-                    src="images/cristian(23).jpg"
+                    src="images/cristiangonzalez(23).jpg"
                     alt="Imagen astronómica"
                 >
             </div>
 
             <div class="swiper-slide">
                 <img
-                    src="images/cristian(24).jpg"
+                    src="images/cristiangonzalez(24).jpg"
                     alt="Imagen astronómica"
                 >
             </div>
 
             <div class="swiper-slide">
                 <img
-                    src="images/cristian(25).jpg"
+                    src="images/cristiangonzalez(25).jpg"
                     alt="Imagen astronómica"
                 >
             </div>

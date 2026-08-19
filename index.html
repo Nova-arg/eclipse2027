@@ -1365,86 +1365,54 @@ section h2 {
         🌌 El Sol, la Luna y algunos Eclipses en imágenes
     </h2>
 
-
+    <div class="astronomy-carousel-intro">
+        Una pequeña colección de imágenes astronómicas.
+    </div>
 
     <div class="swiper astronomy-carousel">
 
         <div class="swiper-wrapper">
 
-
-          
             <div class="swiper-slide">
-
                 <img
-                    src="eclipse2027/images/cristian(22).jpg"
-                    alt=""
+                    src="images/cristian(22).jpg"
+                    alt="Imagen astronómica"
                 >
-
-                <div class="astronomy-slide-overlay">
-
-                </div>
-
-            </div>
-   
-            <div class="swiper-slide">
-
-                <img
-                    src="eclipse2027/images/cristian(23).jpg"
-                    alt=""
-                >
-
-                <div class="astronomy-slide-overlay">
-
-                </div>
-
             </div>
 
-   
             <div class="swiper-slide">
-
                 <img
-                    src="eclipse2027/images/cristian(24).jpg"
-                    alt=""
+                    src="images/cristian(23).jpg"
+                    alt="Imagen astronómica"
                 >
-
-                <div class="astronomy-slide-overlay">
-
-                </div>
-
             </div>
 
-            </div>
-   
             <div class="swiper-slide">
-
                 <img
-                    src="eclipse2027/images/cristian(25).jpg"
-                    alt=""
+                    src="images/cristian(24).jpg"
+                    alt="Imagen astronómica"
                 >
+            </div>
 
-                <div class="astronomy-slide-overlay">
-
-                </div>
-
+            <div class="swiper-slide">
+                <img
+                    src="images/cristian(25).jpg"
+                    alt="Imagen astronómica"
+                >
             </div>
 
         </div>
 
-
         <!-- FLECHAS -->
-
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
 
-
         <!-- PUNTITOS -->
-
         <div class="swiper-pagination"></div>
 
     </div>
 
 </section>
-
 
 <!-- =========================
      INFORMACIÓN DEL ECLIPSE
@@ -2117,7 +2085,56 @@ cargarPreguntas();
 
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+<script>
+
+const astronomySwiper = new Swiper(".astronomy-carousel", {
+
+    loop: true,
+
+    centeredSlides: true,
+
+    slidesPerView: "auto",
+
+    spaceBetween: 30,
+
+    speed: 700,
+
+    grabCursor: true,
+
+    autoplay: {
+        delay: 3500,
+        disableOnInteraction: false
+    },
+
+    navigation: {
+        nextEl: ".astronomy-carousel .swiper-button-next",
+        prevEl: ".astronomy-carousel .swiper-button-prev"
+    },
+
+    pagination: {
+        el: ".astronomy-carousel .swiper-pagination",
+        clickable: true
+    },
+
+    breakpoints: {
+
+        0: {
+            slidesPerView: "auto",
+            spaceBetween: 15
+        },
+
+        701: {
+            slidesPerView: "auto",
+            spaceBetween: 30
+        }
+
+    }
+
+});
+
+</script>
 
    
 

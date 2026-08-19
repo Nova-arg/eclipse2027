@@ -9,13 +9,173 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap"
     rel="stylesheet"
 >
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>    
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Eclipse 2027 | Preguntale a un/a Astrónomo/a</title>
 
 <style>
+/* =========================
+   CARRUSEL ASTRONÓMICO
+========================= */
 
+.astronomy-carousel-section {
+    max-width: 1400px;
+    padding-top: 60px;
+    padding-bottom: 100px;
+}
+
+.astronomy-carousel-intro {
+    max-width: 750px;
+    color: #c8ccda;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 45px;
+}
+
+.astronomy-carousel {
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 60px;
+    overflow: hidden;
+}
+
+.astronomy-carousel .swiper-slide {
+    width: 650px;
+    height: 400px;
+    border-radius: 22px;
+    overflow: hidden;
+    position: relative;
+
+    background: #0b1024;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.45);
+
+    transition:
+        transform 0.5s ease,
+        opacity 0.5s ease;
+}
+
+.astronomy-carousel .swiper-slide img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+/* Oscurecimiento suave */
+
+.astronomy-slide-overlay {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    padding: 35px;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.85),
+            rgba(0, 0, 0, 0.05) 65%
+        );
+}
+
+.astronomy-slide-overlay h3 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.astronomy-slide-overlay p {
+    color: #d7d9e2;
+    font-size: 1rem;
+    max-width: 600px;
+}
+
+/* Flechas */
+
+.astronomy-carousel .swiper-button-next,
+.astronomy-carousel .swiper-button-prev {
+    color: white;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: rgba(5, 8, 22, 0.75);
+
+    backdrop-filter: blur(8px);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.astronomy-carousel .swiper-button-next:hover,
+.astronomy-carousel .swiper-button-prev:hover {
+    transform: scale(1.1);
+    background: rgba(40, 50, 90, 0.9);
+}
+
+.astronomy-carousel .swiper-button-next::after,
+.astronomy-carousel .swiper-button-prev::after {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Puntitos */
+
+.astronomy-carousel .swiper-pagination-bullet {
+    background: white;
+    opacity: 0.35;
+}
+
+.astronomy-carousel .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+/* Celular */
+
+@media (max-width: 700px) {
+
+    .astronomy-carousel-section {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .astronomy-carousel .swiper-slide {
+        width: 78vw;
+        height: 300px;
+    }
+
+    .astronomy-slide-overlay {
+        padding: 22px;
+    }
+
+    .astronomy-slide-overlay h3 {
+        font-size: 1.4rem;
+    }
+
+    .astronomy-slide-overlay p {
+        font-size: 0.9rem;
+    }
+
+    .astronomy-carousel .swiper-button-next,
+    .astronomy-carousel .swiper-button-prev {
+        display: none;
+    }
+}
     * {
         box-sizing: border-box;
         margin: 0;
@@ -1195,7 +1355,95 @@ section h2 {
 
 </section>
 
+<!-- =========================
+     CARRUSEL ASTRONÓMICO
+========================= -->
 
+<section class="astronomy-carousel-section">
+
+    <h2>
+        🌌 El Sol, la Luna y algunos Eclipses en imágenes
+    </h2>
+
+
+
+    <div class="swiper astronomy-carousel">
+
+        <div class="swiper-wrapper">
+
+
+          
+            <div class="swiper-slide">
+
+                <img
+                    src="eclipse2027/images/cristian(22).jpg"
+                    alt=""
+                >
+
+                <div class="astronomy-slide-overlay">
+
+                </div>
+
+            </div>
+   
+            <div class="swiper-slide">
+
+                <img
+                    src="eclipse2027/images/cristian(23).jpg"
+                    alt=""
+                >
+
+                <div class="astronomy-slide-overlay">
+
+                </div>
+
+            </div>
+
+   
+            <div class="swiper-slide">
+
+                <img
+                    src="eclipse2027/images/cristian(24).jpg"
+                    alt=""
+                >
+
+                <div class="astronomy-slide-overlay">
+
+                </div>
+
+            </div>
+
+            </div>
+   
+            <div class="swiper-slide">
+
+                <img
+                    src="eclipse2027/images/cristian(25).jpg"
+                    alt=""
+                >
+
+                <div class="astronomy-slide-overlay">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FLECHAS -->
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+
+        <!-- PUNTITOS -->
+
+        <div class="swiper-pagination"></div>
+
+    </div>
+
+</section>
 
 
 <!-- =========================

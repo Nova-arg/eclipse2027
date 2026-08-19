@@ -6,5 +6,13 @@
     "lugar": "Mar del plata ",
     "pregunta": "¿Cada cuanto se produce un eclipse anular? ",
     "respuesta": "Un eclipse solar anular ocurre, en promedio, unas 2 veces cada 3 años en algún lugar de la Tierra."
+  },
+  {
+    "id": "PRGJ4K5",
+    "fecha": "2026-08-19T01:28:05.000Z",
+    "nombre": "Prueba 2",
+    "lugar": "prueba 2",
+    "pregunta": "prueba 2",
+    "respuesta": "prueba 2"
   }
 ]
